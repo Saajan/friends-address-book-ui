@@ -1,2 +1,2 @@
-export { default as UserList } from './UserList/UserList';
-export { default as AddressList } from './AddressList/AddressList';
+export { default as UserList } from './UserList/UserListContainer';
+export { default as AddressList } from './AddressList/AddressListContainer';

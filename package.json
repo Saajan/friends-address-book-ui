@@ -24,6 +24,7 @@
     "redux-saga-routines": "^3.2.2",
     "typescript": "~3.7.2"
   },
+  "proxy": "http://localhost:8080",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",

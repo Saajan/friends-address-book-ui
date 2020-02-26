@@ -1,17 +1,25 @@
-import React from "react";
+import React, { useEffect } from "react";
 
-interface IUser {
-  id: number;
-  name: string;
-  age: number;
-  sex: string;
-}
+export default ({ getUserList, userList }: any) => {
+  useEffect(() => {
+    getUserList();
+  }, []);
 
-interface IUsers {
-  userList: IUser[];
-}
-
-export default ({ userList }: IUsers) => {
-  console.log(userList);
-  return <div>user list</div>;
+  if (userList.data.length > 0) {
+    return (
+      <div>
+        <ul className="list">
+          {userList.data.map((user: any) => (
+            <li className="list-item" key={user.id}>
+              <div>{user.name}</div>
+              <div>{user.age}</div>
+              <div>{user.sex}</div>
+            </li>
+          ))}
+        </ul>
+      </div>
+    );
+  } else {
+    return <div>Loading</div>;
+  }
 };
