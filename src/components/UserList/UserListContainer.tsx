@@ -6,7 +6,10 @@ import { getUserList, setCurrentUser } from "../../actions";
 
 const mapStateToProps = (state: any) => {
   return {
-    userList: state.userList
+    currentUser: state.currentUser,
+    loading: state.userList.loading,
+    data: state.userList.data,
+    error: state.userList.error
   };
 };
 

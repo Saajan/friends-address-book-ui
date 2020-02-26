@@ -7,7 +7,9 @@ import { getAddressList } from "../../actions";
 const mapStateToProps = (state: any) => {
   return {
     currentUser: state.currentUser,
-    addressList: state.addressList
+    loading: state.addressList.loading,
+    data: state.addressList.data,
+    error: state.addressList.error
   };
 };
 

@@ -8,6 +8,7 @@ import { UserList, AddressList } from "./components";
 function App() {
   return (
     <Provider store={store}>
+      <header>F.R.I.E.N.D.S Address Book</header>
       <div className="container">
         <div className="user-container">
           <UserList />

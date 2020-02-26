@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { Fragment, useEffect } from "react";
 
 interface User {
   id: number;
@@ -7,7 +7,7 @@ interface User {
   sex: string;
 }
 
-export default ({ getUserList, setCurrentUser, userList }: any) => {
+export default ({ getUserList, setCurrentUser, currentUser, loading, error, data }: any) => {
   useEffect(() => {
     getUserList();
   }, []);
@@ -16,25 +16,34 @@ export default ({ getUserList, setCurrentUser, userList }: any) => {
     setCurrentUser(id);
   };
 
-  if (userList.data.length > 0) {
-    return (
-      <div>
-        <ul className="list">
-          {userList.data.map((user: User) => (
+  if (loading) {
+    return <div>Loading</div>;
+  }
+
+  if (error) {
+    return <div> Error : {error}</div>;
+  }
+
+  return (
+    <Fragment>
+      <ul className="list user-list">
+        {data.length > 0 ? (
+          data.map((user: User) => (
             <li
-              className="list-item"
+              className={currentUser == user.id ? 'list-item selected' : "list-item"}
               key={user.id}
               onClick={() => handleUserClick(user.id)}
             >
-              <div>{user.name}</div>
-              <div>{user.age}</div>
+              <div>
+                {user.name} ({` ${user.age} Yr. `})
+              </div>
               <div>{user.sex}</div>
             </li>
-          ))}
-        </ul>
-      </div>
-    );
-  } else {
-    return <div>Loading</div>;
-  }
+          ))
+        ) : (
+          <li className="list-item">No Users Present</li>
+        )}
+      </ul>
+    </Fragment>
+  );
 };

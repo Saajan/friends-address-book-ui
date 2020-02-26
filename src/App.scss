@@ -1,5 +1,16 @@
+header {
+  height: 50px;
+  display: flex;
+  color: #fff;
+  font-weight: 700;
+  font-size: 17px;
+  background-color: #333;
+  align-items: center;
+  justify-content: center;
+}
+
 .container {
-  height: 100%;
+  height: calc(100vh - 50px);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -8,10 +19,14 @@
 .user-container {
   flex: 1;
   width: 100%;
+  overflow-y: scroll;
+  background-color: #d9d8d7;
 }
 .address-container {
   flex: 1;
   width: 100%;
+  background-color: #bfbfbf;
+  overflow-y: scroll;
 }
 
 .list {
@@ -21,16 +36,48 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-around;
-    text-align: left;
-    padding:15px;
-    height: 50px;
     margin: 10px;
     border-radius: 10px;
-    background: #ffffff;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-    div {
-      flex: 1;
+  }
+}
+
+.user-list {
+  .list-item {
+    justify-content: space-between;
+    padding: 15px;
+    height: 50px;
+    background-color: #ffffff;
+    &.selected {
+      background: #8c3e53;
+      color: #fff;
     }
   }
+}
+
+.address-list {
+  .list-item {
+    height: 100px;
+    font-size: 21px;
+    justify-content: center;
+    background-color: #03a678;
+    color: #fff;
+    &.not-found {
+      background-color: #e45245;
+    }
+  }
+}
+
+.not-selected {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 10px;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  height: 100px;
+  font-size: 21px;
+  justify-content: center;
+  color: #fff;
+  background-color: #F2A413;
 }
