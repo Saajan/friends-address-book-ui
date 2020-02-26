@@ -1,7 +1,7 @@
 import { takeLatest, put, call } from "redux-saga/effects";
 
 import { getUserList, getAddressList } from "../actions";
-import { apiPostRequest, apiGetRequest } from "../api";
+import { apiGetRequest } from "../api";
 import { getErrorMessage } from "../utils/helper";
 
 export function* getUserListSaga() {
@@ -18,12 +18,11 @@ export function* getUserListSaga() {
   }
 }
 
-export function* getAddressListSaga({ payload: { fields } }: any) {
+export function* getAddressListSaga({ payload }: any) {
   try {
     yield put(getAddressList.request());
-    const response = yield call(apiPostRequest, {
-      fields,
-      endpoint: "/api/user"
+    const response = yield call(apiGetRequest, {
+      endpoint: `/api/user/${ payload }`
     });
     yield put(getAddressList.success(response));
   } catch (error) {

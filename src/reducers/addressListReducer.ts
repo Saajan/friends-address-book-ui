@@ -10,7 +10,6 @@ export const addressListReducer = (
   state = initialState,
   { type, payload }: any
 ) => {
-  
   switch (type) {
     case getAddressList.TRIGGER:
       return {

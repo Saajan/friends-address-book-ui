@@ -1,12 +1,18 @@
 import React, { useEffect } from "react";
 
+interface User {
+  id: number;
+  name: string;
+  age: number;
+  sex: string;
+}
+
 export default ({ getUserList, setCurrentUser, userList }: any) => {
   useEffect(() => {
     getUserList();
   }, []);
 
-  const handleUserClick = (id: any) => {
-    console.log(id);
+  const handleUserClick = (id: number) => {
     setCurrentUser(id);
   };
 
@@ -14,8 +20,12 @@ export default ({ getUserList, setCurrentUser, userList }: any) => {
     return (
       <div>
         <ul className="list">
-          {userList.data.map((user: any) => (
-            <li className="list-item" key={user.id} onClick={() => handleUserClick(user.id)}>
+          {userList.data.map((user: User) => (
+            <li
+              className="list-item"
+              key={user.id}
+              onClick={() => handleUserClick(user.id)}
+            >
               <div>{user.name}</div>
               <div>{user.age}</div>
               <div>{user.sex}</div>
