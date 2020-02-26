@@ -1,4 +1,4 @@
-import { getAddressList } from "../../actions";
+import { getAddressList } from "../actions";
 
 const initialState = {
   loading: false,

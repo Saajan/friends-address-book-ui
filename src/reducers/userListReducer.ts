@@ -1,4 +1,4 @@
-import { getUserList } from "../../actions";
+import { getUserList } from "../actions";
 
 const initialState = {
   loading: false,

@@ -1,9 +1,11 @@
 import { combineReducers } from "redux";
-import { userListReducer } from "../components/UserList/userListReducer";
-import { addressListReducer } from "../components/AddressList/addressListReducer";
+import { userListReducer } from "./userListReducer";
+import { addressListReducer } from "./addressListReducer";
+import { currentUserReducer } from "./currentUserReducer";
 
 const rootReducer = combineReducers({
   userList: userListReducer,
+  currentUser: currentUserReducer,
   addressList: addressListReducer
 });
 

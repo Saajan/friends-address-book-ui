@@ -2,7 +2,7 @@ import { bindActionCreators, Dispatch, AnyAction } from "redux";
 import { connect } from "react-redux";
 
 import UserList from "./UserList";
-import { getUserList } from "../../actions";
+import { getUserList, setCurrentUser } from "../../actions";
 
 const mapStateToProps = (state: any) => {
   return {
@@ -13,7 +13,8 @@ const mapStateToProps = (state: any) => {
 const mapDispatchToProps = (dispatch: Dispatch<AnyAction>) => {
   return bindActionCreators(
     {
-      getUserList
+      getUserList,
+      setCurrentUser
     },
     dispatch
   );
